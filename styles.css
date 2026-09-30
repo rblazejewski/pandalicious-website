@@ -1,0 +1,320 @@
+/* Palette mirrors the app's V3 tokens (PanDalicious/constants/theme.ts). */
+:root {
+  --screen: #02C39A;
+  --ink-on-screen: #06232B;
+  --muted-on-screen: #1E3A40;
+  --header: #FFFFFF;
+  --header-title: #02A884;
+  --card: #FFFFFF;
+  --text: #272727;
+  --text-secondary: #2E3D44;
+  --action: #0B6E4F;
+  --on-action: #FFFFFF;
+  --icon-bg: #E0F5EF;
+  --border: #D9DBE0;
+  --input-bg: #F0F0F3;
+  --error: #D0342C;
+  --success: #0B6E4F;
+  --shadow: 0 6px 20px rgba(6, 35, 43, 0.12);
+  --radius: 20px;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --screen: #0A2E36;
+    --ink-on-screen: #FCFCFC;
+    --muted-on-screen: #B7C9CC;
+    --header: #0C1618;
+    --header-title: #06D6A0;
+    --card: #12373F;
+    --text: #FFFFFF;
+    --text-secondary: #B0B4BA;
+    --action: #06D6A0;
+    --on-action: #06232B;
+    --icon-bg: #1D4A4F;
+    --border: #3A3D42;
+    --input-bg: #0C262C;
+    --error: #FF6B61;
+    --success: #06D6A0;
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--screen);
+  color: var(--ink-on-screen);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+.wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- Header: white bar with green title, like the app's stack headers ---- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--header);
+  border-bottom: 1px solid var(--border);
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+}
+.brand {
+  color: var(--header-title);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+/* ---- Pill buttons (the app's Button) ---- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--action);
+  color: var(--on-action);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+.pill:hover { filter: brightness(1.08); }
+.pill:active { transform: scale(0.98); }
+.pill:disabled { opacity: 0.6; cursor: progress; }
+.pill-small { min-height: 40px; padding: 0 18px; font-size: 0.95rem; }
+
+:focus-visible {
+  outline: 3px solid var(--ink-on-screen);
+  outline-offset: 3px;
+}
+.topbar :focus-visible, .card :focus-visible { outline-color: var(--action); }
+
+/* ---- Cards (the app's Surface/Card) ---- */
+.card {
+  position: relative;
+  background: var(--card);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---- Hero ---- */
+.hero { padding: 48px 0 56px; }
+.hero-inner {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .hero { padding: 72px 0 88px; }
+  .hero-inner { grid-template-columns: 1.1fr 1fr; gap: 56px; }
+}
+
+.hero-copy { text-align: center; }
+@media (min-width: 900px) { .hero-copy { text-align: left; } }
+
+.hero-panda {
+  width: clamp(160px, 38vw, 240px);
+  height: auto;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 10px 18px rgba(6, 35, 43, 0.25));
+}
+@media (min-width: 900px) { .hero-panda { margin-left: 0; } }
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.4rem, 7vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.lede {
+  margin: 0 auto 16px;
+  max-width: 34rem;
+  font-size: 1.2rem;
+  color: var(--muted-on-screen);
+}
+@media (min-width: 900px) { .lede { margin-left: 0; } }
+.platforms {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- Waitlist card ---- */
+.waitlist-card {
+  padding: 40px 24px 24px;
+  scroll-margin-top: 88px;
+}
+@media (min-width: 600px) { .waitlist-card { padding: 44px 32px 28px; } }
+
+.card-tag {
+  position: absolute;
+  top: 0;
+  left: 24px;
+  transform: translateY(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--action);
+  color: var(--on-action);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+.waitlist-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.waitlist-card > p { margin: 0 0 20px; color: var(--text-secondary); }
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 480px) { .waitlist-form { flex-direction: row; } }
+
+.waitlist-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--input-bg);
+  color: var(--text);
+  font: inherit;
+}
+.waitlist-form input[type="email"]::placeholder { color: #6B7C85; }
+.waitlist-form input[type="email"]:focus-visible { outline: none; border-color: var(--action); }
+.waitlist-form input[aria-invalid="true"] { border-color: var(--error); }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-status {
+  min-height: 1.55em;
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+.form-status.is-error { color: var(--error); }
+.form-status.is-success { color: var(--success); }
+
+.fineprint {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ---- Features ---- */
+.features { padding: 16px 0 64px; }
+.section-title {
+  margin: 0 0 20px;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+.section-title span { font-size: 1.1rem; font-weight: 500; color: var(--muted-on-screen); }
+
+.feature-grid {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 640px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .feature-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+
+.feature { padding: 24px; }
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: var(--icon-bg);
+}
+.feature-icon svg { width: 28px; height: 28px; fill: var(--action); }
+.feature h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.feature p { margin: 0; color: var(--text-secondary); }
+
+/* ---- Closing CTA ---- */
+.closing { padding: 0 0 72px; }
+.closing-inner { text-align: center; }
+.closing h2 { margin: 0 0 8px; font-size: 1.9rem; }
+.closing p { margin: 0 auto 24px; max-width: 32rem; color: var(--muted-on-screen); }
+
+/* ---- Footer ---- */
+.footer {
+  background: var(--header);
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.footer a { color: var(--action); font-weight: 600; }
+
+/* ---- Privacy page ---- */
+.doc { padding: 40px 0 64px; }
+.doc .card { padding: 28px 24px; max-width: 760px; margin: 0 auto; }
+@media (min-width: 600px) { .doc .card { padding: 40px; } }
+.doc h1 { font-size: clamp(2rem, 5vw, 2.6rem); color: var(--text); }
+.doc h2 { margin: 28px 0 8px; font-size: 1.25rem; }
+.doc p, .doc li { color: var(--text-secondary); }
+.doc a { color: var(--action); font-weight: 600; }
+.doc .updated { margin-top: 0; font-size: 0.95rem; }
+
+/* ---- 404 ---- */
+.notfound { padding-top: 72px; }
+.notfound .hero-panda { margin: 0 auto 24px; }
+
+/* The panda's black ears vanish on the dark background; give it a soft light halo. */
+@media (prefers-color-scheme: dark) {
+  .hero-panda { filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(6, 214, 160, 0.35)); }
+}
