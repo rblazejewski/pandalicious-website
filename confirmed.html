@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email confirmed · PanDalicious</title>
+  <meta name="robots" content="noindex">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#02C39A">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/confirmed.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="/">PanDalicious</a>
+    </div>
+  </header>
+  <!-- Supabase sends people here from the sign-up confirmation email. confirmed.js swaps in the error copy when the link failed. -->
+  <main class="closing notfound">
+    <div class="wrap closing-inner" id="confirmed">
+      <img class="hero-panda" src="/assets/panda.png" width="480" height="472" alt="">
+      <h2>You're confirmed!</h2>
+      <p>Your PanDalicious account is ready. Head back to the app and log in to get cooking.</p>
+    </div>
+    <div class="wrap closing-inner" id="link-failed" hidden>
+      <img class="hero-panda" src="/assets/panda.png" width="480" height="472" alt="">
+      <h2>This link didn't work.</h2>
+      <p>It has expired or has already been used. If you've already confirmed your email, you can log in to the app as normal. If not, sign up again in the app with the same email and we'll send you a fresh link.</p>
+    </div>
+  </main>
+</body>
+</html>
