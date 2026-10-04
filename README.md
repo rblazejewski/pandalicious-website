@@ -4,7 +4,7 @@ Static landing page with a Kickstarter waitlist. Plain HTML/CSS/JS, no build ste
 
 - `index.html`, `privacy.html`, `404.html`, `styles.css`, `main.js`
 - `confirmed.html` + `confirmed.js`: where the app's sign-up confirmation email lands (`emailRedirectTo` in the app's `signup.tsx`; the URL must be in Supabase's Redirect URLs allow-list). Shows an "expired or already used" message when Supabase redirects with an error, and strips the session tokens from the URL.
-- Palette mirrors the app's V3 tokens (`../PanDalicious/constants/theme.ts`), light and dark.
+- Palette mirrors the app's tokens (`../PanDalicious/constants/theme.ts`): PDV4's muted teal, light and dark.
 - `assets/panda.png|webp` is the app's `onboarding/logo.png` with the outer white made transparent. `assets/og-image.png` is the link-preview image.
 
 ## Waitlist

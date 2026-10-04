@@ -1,20 +1,20 @@
-/* Palette mirrors the app's V3 tokens (PanDalicious/constants/theme.ts). */
+/* Palette mirrors the app's tokens (PanDalicious/constants/theme.ts): PDV4's muted teal. */
 :root {
-  --screen: #02C39A;
+  --screen: #56A3A6;
   --ink-on-screen: #06232B;
-  --muted-on-screen: #1E3A40;
+  --muted-on-screen: #142B30;
   --header: #FFFFFF;
-  --header-title: #02A884;
+  --header-title: #3A7D80;
   --card: #FFFFFF;
   --text: #272727;
   --text-secondary: #2E3D44;
-  --action: #0B6E4F;
+  --action: #1A5153;
   --on-action: #FFFFFF;
-  --icon-bg: #E0F5EF;
+  --icon-bg: #E3F1F1;
   --border: #D9DBE0;
   --input-bg: #F0F0F3;
   --error: #D0342C;
-  --success: #0B6E4F;
+  --success: #1A5153;
   --shadow: 0 6px 20px rgba(6, 35, 43, 0.12);
   --radius: 20px;
   color-scheme: light;
@@ -26,17 +26,17 @@
     --ink-on-screen: #FCFCFC;
     --muted-on-screen: #B7C9CC;
     --header: #0C1618;
-    --header-title: #06D6A0;
+    --header-title: #7CC4C6;
     --card: #12373F;
     --text: #FFFFFF;
     --text-secondary: #B0B4BA;
-    --action: #06D6A0;
+    --action: #7CC4C6;
     --on-action: #06232B;
     --icon-bg: #1D4A4F;
     --border: #3A3D42;
     --input-bg: #0C262C;
     --error: #FF6B61;
-    --success: #06D6A0;
+    --success: #7CC4C6;
     --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     color-scheme: dark;
   }
@@ -316,5 +316,5 @@ h1 {
 
 /* The panda's black ears vanish on the dark background; give it a soft light halo. */
 @media (prefers-color-scheme: dark) {
-  .hero-panda { filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(6, 214, 160, 0.35)); }
+  .hero-panda { filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.9)) drop-shadow(0 0 14px rgba(124, 196, 198, 0.35)); }
 }
