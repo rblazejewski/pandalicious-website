@@ -1,4 +1,4 @@
-/* Palette mirrors the app's tokens (PanDalicious/constants/theme.ts): PDV4's muted teal. */
+/* Teal screen (the app's PanDalicious/constants/theme.ts) with V3's green as the accent: headings, buttons, links. */
 :root {
   --screen: #56A3A6;
   --ink-on-screen: #06232B;
@@ -8,13 +8,13 @@
   --card: #FFFFFF;
   --text: #272727;
   --text-secondary: #2E3D44;
-  --action: #1A5153;
+  --action: #0B6E4F;
   --on-action: #FFFFFF;
-  --icon-bg: #E3F1F1;
+  --icon-bg: #E0F5EF;
   --border: #D9DBE0;
   --input-bg: #F0F0F3;
   --error: #D0342C;
-  --success: #1A5153;
+  --success: #0B6E4F;
   --shadow: 0 6px 20px rgba(6, 35, 43, 0.12);
   --radius: 20px;
   color-scheme: light;
@@ -30,13 +30,13 @@
     --card: #12373F;
     --text: #FFFFFF;
     --text-secondary: #B0B4BA;
-    --action: #7CC4C6;
+    --action: #06D6A0;
     --on-action: #06232B;
     --icon-bg: #1D4A4F;
     --border: #3A3D42;
     --input-bg: #0C262C;
     --error: #FF6B61;
-    --success: #7CC4C6;
+    --success: #06D6A0;
     --shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     color-scheme: dark;
   }
